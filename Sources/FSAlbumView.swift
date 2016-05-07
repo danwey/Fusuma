@@ -60,7 +60,7 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
         
         self.hidden = false
         
-        let panGesture      = UIPanGestureRecognizer(target: self, action: "panned:")
+        let panGesture      = UIPanGestureRecognizer(target: self, action: #selector(FSAlbumView.panned(_:)))
         panGesture.delegate = self
         self.addGestureRecognizer(panGesture)
         
@@ -68,10 +68,7 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
         imageCropViewConstraintTop.constant = 50
         dragDirection = Direction.Up
         
-        imageCropViewContainer.layer.shadowColor   = UIColor.blackColor().CGColor
-        imageCropViewContainer.layer.shadowRadius  = 30.0
-        imageCropViewContainer.layer.shadowOpacity = 0.9
-        imageCropViewContainer.layer.shadowOffset  = CGSizeZero
+        collectionView.backgroundColor  = UIColor.hex("#EDEDED", alpha: 1.0)
         
         collectionView.registerNib(UINib(nibName: "FSAlbumViewCell", bundle: NSBundle(forClass: self.classForCoder)), forCellWithReuseIdentifier: "FSAlbumViewCell")
         

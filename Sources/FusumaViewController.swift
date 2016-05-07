@@ -17,8 +17,9 @@ import UIKit
     optional func fusumaDismissedWithImage(image: UIImage)
 }
 
-public var fusumaTintColor       = UIColor.hex("#009688", alpha: 1.0)
-public var fusumaBackgroundColor = UIColor.hex("#212121", alpha: 1.0)
+public var fusumaTintColor       = UIColor.hex("#000000", alpha: 1.0)
+public var fusumaBackgroundColor = UIColor.hex("#EDEDED", alpha: 1.0)
+public var fushmaBlueColor       = UIColor.hex("39cbf7", alpha: 1.0)
 
 
 public enum FusumaMode {
@@ -75,20 +76,20 @@ public final class FusumaViewController: UIViewController, FSCameraViewDelegate,
         menuView.backgroundColor = fusumaBackgroundColor
         menuView.addBottomBorder(UIColor.blackColor(), width: 1.0)
         
-        let bundle = NSBundle(forClass: self.classForCoder)
+//        let bundle = NSBundle(forClass: self.classForCoder)
         
-        let albumImage = UIImage(named: "ic_insert_photo", inBundle: bundle, compatibleWithTraitCollection: nil)
-        let cameraImage = UIImage(named: "ic_photo_camera", inBundle: bundle, compatibleWithTraitCollection: nil)
-        let checkImage = UIImage(named: "ic_check", inBundle: bundle, compatibleWithTraitCollection: nil)
-
-        
-        libraryButton.setImage(albumImage, forState: .Normal)
-        libraryButton.setImage(albumImage, forState: .Highlighted)
-        libraryButton.setImage(albumImage, forState: .Selected)
-
-        cameraButton.setImage(cameraImage, forState: .Normal)
-        cameraButton.setImage(cameraImage, forState: .Highlighted)
-        cameraButton.setImage(cameraImage, forState: .Selected)
+//        let albumImage = UIImage(named: "ic_insert_photo", inBundle: bundle, compatibleWithTraitCollection: nil)
+//        let cameraImage = UIImage(named: "ic_photo_camera", inBundle: bundle, compatibleWithTraitCollection: nil)
+//        let checkImage = UIImage(named: "ic_check", inBundle: bundle, compatibleWithTraitCollection: nil)
+//
+//        
+//        libraryButton.setImage(albumImage, forState: .Normal)
+//        libraryButton.setImage(albumImage, forState: .Highlighted)
+//        libraryButton.setImage(albumImage, forState: .Selected)
+//
+//        cameraButton.setImage(cameraImage, forState: .Normal)
+//        cameraButton.setImage(cameraImage, forState: .Highlighted)
+//        cameraButton.setImage(cameraImage, forState: .Selected)
         
         closeButton.tintColor = UIColor.whiteColor()
         
@@ -105,8 +106,8 @@ public final class FusumaViewController: UIViewController, FSCameraViewDelegate,
         photoLibraryViewerContainer.addSubview(albumView)
         cameraShotContainer.addSubview(cameraView)
         
-        doneButton.setImage(checkImage, forState: .Normal)
-        doneButton.tintColor = UIColor.whiteColor()
+//        doneButton.setImage(checkImage, forState: .Normal)
+//        doneButton.tintColor = UIColor.whiteColor()
 
         if modeOrder != .LibraryFirst {
             libraryFirstConstraints.forEach { $0.priority = 250 }
@@ -224,14 +225,11 @@ private extension FusumaViewController {
     
     func dishighlightButtons() {
         
-        cameraButton.tintColor  = UIColor.whiteColor()
-        libraryButton.tintColor = UIColor.whiteColor()
-        
         if cameraButton.layer.sublayers?.count > 1 {
             
             for layer in cameraButton.layer.sublayers! {
                 
-                if let borderColor = layer.borderColor where UIColor(CGColor: borderColor) == fusumaTintColor {
+                if let borderColor = layer.borderColor where UIColor(CGColor: borderColor) == fushmaBlueColor {
                     
                     layer.removeFromSuperlayer()
                 }
@@ -243,7 +241,7 @@ private extension FusumaViewController {
             
             for layer in libraryButton.layer.sublayers! {
                 
-                if let borderColor = layer.borderColor where UIColor(CGColor: borderColor) == fusumaTintColor {
+                if let borderColor = layer.borderColor where UIColor(CGColor: borderColor) == fushmaBlueColor {
                     
                     layer.removeFromSuperlayer()
                 }
@@ -257,6 +255,6 @@ private extension FusumaViewController {
         
         button.tintColor = fusumaTintColor
         
-        button.addBottomBorder(fusumaTintColor, width: 3)
+        button.addBottomBorder(fushmaBlueColor, width: 3)
     }
 }
