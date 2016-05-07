@@ -205,7 +205,7 @@ private extension FusumaViewController {
         
         if mode == FusumaMode.Library {
             
-            titleLabel.text = "CAMERA ROLL"
+            titleLabel.text = "相机胶卷"
             doneButton.hidden = false
             
             highlightButton(libraryButton)
@@ -213,7 +213,7 @@ private extension FusumaViewController {
             
         } else {
 
-            titleLabel.text = "PHOTO"
+            titleLabel.text = "相机拍照"
             doneButton.hidden = true
             
             highlightButton(cameraButton)
